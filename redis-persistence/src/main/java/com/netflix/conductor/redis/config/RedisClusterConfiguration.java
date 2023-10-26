@@ -19,7 +19,7 @@ import java.util.stream.Collectors;
 import org.apache.commons.pool2.impl.GenericObjectPoolConfig;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnExpression;
 import org.springframework.context.annotation.Configuration;
 
 import com.netflix.conductor.core.config.ConductorProperties;
@@ -33,7 +33,8 @@ import redis.clients.jedis.Protocol;
 import redis.clients.jedis.commands.JedisCommands;
 
 @Configuration(proxyBeanMethods = false)
-@ConditionalOnProperty(name = "conductor.db.type", havingValue = "redis_cluster")
+@ConditionalOnExpression(
+        "'${conductor.db.type}'.equals('redis_cluster') || '${conductor.poll-data-dao.type}'.equals('redis_cluster')")
 public class RedisClusterConfiguration extends JedisCommandsConfigurer {
 
     private static final Logger log = LoggerFactory.getLogger(JedisCommandsConfigurer.class);

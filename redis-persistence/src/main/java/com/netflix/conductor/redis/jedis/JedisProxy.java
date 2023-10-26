@@ -26,7 +26,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Conditional;
 import org.springframework.stereotype.Component;
 
-import com.netflix.conductor.redis.config.AnyRedisCondition;
+import com.netflix.conductor.redis.config.AnyPollDataRedisCondition;
 
 import redis.clients.jedis.ScanParams;
 import redis.clients.jedis.ScanResult;
@@ -38,7 +38,7 @@ import static com.netflix.conductor.redis.config.RedisCommonConfiguration.DEFAUL
 
 /** Proxy for the {@link JedisCommands} object. */
 @Component
-@Conditional(AnyRedisCondition.class)
+@Conditional(AnyPollDataRedisCondition.class)
 public class JedisProxy {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(JedisProxy.class);

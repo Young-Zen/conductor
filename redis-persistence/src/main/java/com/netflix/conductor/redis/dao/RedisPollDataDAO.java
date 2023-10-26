@@ -18,20 +18,22 @@ import java.util.Map;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.context.annotation.Conditional;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
 import com.netflix.conductor.common.metadata.tasks.PollData;
 import com.netflix.conductor.core.config.ConductorProperties;
 import com.netflix.conductor.dao.PollDataDAO;
-import com.netflix.conductor.redis.config.AnyRedisCondition;
+import com.netflix.conductor.redis.config.AnyPollDataRedisCondition;
 import com.netflix.conductor.redis.config.RedisProperties;
 import com.netflix.conductor.redis.jedis.JedisProxy;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.base.Preconditions;
 
+@Primary
 @Component
-@Conditional(AnyRedisCondition.class)
+@Conditional(AnyPollDataRedisCondition.class)
 public class RedisPollDataDAO extends BaseDynoDAO implements PollDataDAO {
 
     private static final String POLL_DATA = "POLL_DATA";

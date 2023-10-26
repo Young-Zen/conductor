@@ -14,7 +14,7 @@ package com.netflix.conductor.redis.config;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnExpression;
 import org.springframework.context.annotation.Configuration;
 
 import com.netflix.conductor.core.config.ConductorProperties;
@@ -29,7 +29,8 @@ import redis.clients.jedis.Protocol;
 import redis.clients.jedis.commands.JedisCommands;
 
 @Configuration(proxyBeanMethods = false)
-@ConditionalOnProperty(name = "conductor.db.type", havingValue = "redis_standalone")
+@ConditionalOnExpression(
+        "'${conductor.db.type}'.equals('redis_standalone') || '${conductor.poll-data-dao.type}'.equals('redis_standalone')")
 public class RedisStandaloneConfiguration extends JedisCommandsConfigurer {
 
     private static final Logger log = LoggerFactory.getLogger(RedisSentinelConfiguration.class);
