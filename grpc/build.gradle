@@ -24,7 +24,7 @@ plugins {
 }
 
 repositories{
-    maven { url "https://mvnrepository.com/artifact" }
+    maven { url "https://young-zen-maven.pkg.coding.net/repository/artifacts/maven/" }
 }
 
 dependencies {

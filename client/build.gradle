@@ -1,7 +1,7 @@
 buildscript {
     repositories {
         maven {
-            url "https://plugins.gradle.org/m2/"
+            url "https://young-zen-maven.pkg.coding.net/repository/artifacts/maven/"
         }
     }
     dependencies {
