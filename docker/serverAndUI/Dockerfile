@@ -29,7 +29,9 @@ RUN ./gradlew build -x test
 
 # Build the client
 WORKDIR /conductor/ui
-RUN yarn install && yarn build
+# Include monaco sources into bundle (instead of using CDN)
+ENV REACT_APP_MONACO_EDITOR_USING_CDN=false
+RUN yarn install && cp -r node_modules/monaco-editor public/ && yarn build
 
 # ===========================================================================================================
 # 1. Bin stage
