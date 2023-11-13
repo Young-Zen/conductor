@@ -5,7 +5,7 @@ services:
   conductor-server:
     environment:
       - CONFIG_PROP=config-mysql-grpc.properties
-    image: conductor:server
+    image: zen369/conductor-server:v3.13.8-optimize
     container_name: conductor-server
     volumes:
       - ./config:/app/config
@@ -31,7 +31,7 @@ services:
   conductor-ui:
     environment:
       - WF_SERVER=http://conductor-server:8080
-    image: conductor:ui
+    image: zen369/conductor-ui:v3.13.8-optimize
     container_name: conductor-ui
     build:
       context: ../../
@@ -48,10 +48,10 @@ services:
     image: mysql:5.7
     command: --character-set-server=utf8mb4 --collation-server=utf8mb4_general_ci
     environment:
-      MYSQL_ROOT_PASSWORD: 12345
+      MYSQL_ROOT_PASSWORD: Mysql123Conductor
       MYSQL_DATABASE: conductor
-      MYSQL_USER: conductor
-      MYSQL_PASSWORD: conductor
+      MYSQL_USER: mysql
+      MYSQL_PASSWORD: Mysql123Conductor
     volumes:
       - type: volume
         source: conductor_mysql
@@ -68,8 +68,10 @@ services:
 
   redis:
     image: redis:6.2.3-alpine
+    command: --requirepass Redis123Conductor --appendonly yes
     volumes:
       - ./redis.conf:/usr/local/etc/redis/redis.conf
+      - redis-data-conductor:/data
     networks:
       - internal
     ports:
@@ -78,13 +80,13 @@ services:
       test: [ "CMD", "redis-cli","ping" ]
 
   elasticsearch:
-    image: elasticsearch:6.8.15
+    image: elasticsearch:6.8.23
     container_name: elasticsearch
     environment:
       - "ES_JAVA_OPTS=-Xms512m -Xmx1024m"
-      - transport.host=0.0.0.0
       - discovery.type=single-node
-      - xpack.security.enabled=false
+      - xpack.security.enabled=true
+      - ELASTIC_PASSWORD=ElasticSearch123Conductor
     volumes:
       - esdata-conductor:/usr/share/elasticsearch/data
     networks:
@@ -107,6 +109,7 @@ volumes:
   esdata-conductor:
     driver: local
   conductor_mysql:
+  redis-data-conductor:
 
 networks:
   internal:
