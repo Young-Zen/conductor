@@ -36,13 +36,13 @@
             "locked": "2.17.2"
         },
         "org.elasticsearch.client:elasticsearch-rest-client": {
-            "locked": "6.8.12"
+            "locked": "6.8.23"
         },
         "org.elasticsearch.client:elasticsearch-rest-high-level-client": {
-            "locked": "6.8.12"
+            "locked": "6.8.23"
         },
         "org.elasticsearch.client:transport": {
-            "locked": "6.8.12"
+            "locked": "6.8.23"
         },
         "org.springframework.boot:spring-boot-starter": {
             "locked": "2.7.3"
@@ -206,13 +206,13 @@
             "locked": "2.17.2"
         },
         "org.elasticsearch.client:elasticsearch-rest-client": {
-            "locked": "6.8.12"
+            "locked": "6.8.23"
         },
         "org.elasticsearch.client:elasticsearch-rest-high-level-client": {
-            "locked": "6.8.12"
+            "locked": "6.8.23"
         },
         "org.elasticsearch.client:transport": {
-            "locked": "6.8.12"
+            "locked": "6.8.23"
         }
     },
     "testCompileClasspath": {
@@ -253,13 +253,13 @@
             "locked": "3.1.6"
         },
         "org.elasticsearch.client:elasticsearch-rest-client": {
-            "locked": "6.8.12"
+            "locked": "6.8.23"
         },
         "org.elasticsearch.client:elasticsearch-rest-high-level-client": {
-            "locked": "6.8.12"
+            "locked": "6.8.23"
         },
         "org.elasticsearch.client:transport": {
-            "locked": "6.8.12"
+            "locked": "6.8.23"
         },
         "org.junit.vintage:junit-vintage-engine": {
             "locked": "5.8.2"
@@ -438,13 +438,13 @@
             "locked": "3.1.6"
         },
         "org.elasticsearch.client:elasticsearch-rest-client": {
-            "locked": "6.8.12"
+            "locked": "6.8.23"
         },
         "org.elasticsearch.client:elasticsearch-rest-high-level-client": {
-            "locked": "6.8.12"
+            "locked": "6.8.23"
         },
         "org.elasticsearch.client:transport": {
-            "locked": "6.8.12"
+            "locked": "6.8.23"
         },
         "org.junit.vintage:junit-vintage-engine": {
             "locked": "5.8.2"
