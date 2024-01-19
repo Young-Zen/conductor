@@ -42,6 +42,7 @@ dependencies {
     implementation "io.orkes.queues:orkes-conductor-queues:${revOrkesQueues}"
 
     implementation "org.springdoc:springdoc-openapi-ui:${revOpenapi}"
+    implementation "com.netflix.conductor:conductor-metrics:3.13.8"
     implementation("com.netflix.conductor:conductor-mysql-persistence:3.13.8") {
         exclude group: 'org.flywaydb', module: 'flyway-core'
     }
