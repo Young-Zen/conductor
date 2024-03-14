@@ -40,7 +40,7 @@ import redis.clients.jedis.commands.JedisCommands;
 
 @Configuration(proxyBeanMethods = false)
 @EnableConfigurationProperties(RedisProperties.class)
-@Conditional(AnyRedisCondition.class)
+@Conditional(AnyPollDataRedisCondition.class)
 public class RedisCommonConfiguration {
 
     public static final String DEFAULT_CLIENT_INJECTION_NAME = "DefaultJedisCommands";
