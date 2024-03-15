@@ -35,7 +35,7 @@ services:
     container_name: conductor-ui
     build:
       context: ../../
-      dockerfile: docker/ui/Dockerfile
+      dockerfile: docker/ui-nginx/Dockerfile
     networks:
       - internal
     ports:
@@ -67,7 +67,7 @@ services:
       retries: 12
 
   redis:
-    image: redis:6.2.3-alpine
+    image: redis:6.2.14-alpine
     command: --requirepass Redis123Conductor --appendonly yes
     volumes:
       - ./redis.conf:/usr/local/etc/redis/redis.conf
