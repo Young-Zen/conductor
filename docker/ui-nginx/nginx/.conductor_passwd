@@ -1,0 +1,3 @@
+# yum -y install httpd-tools && htpasswd -c conductor_passwd conductor
+# to generate password(default username / password: conductor / Conductor123)
+conductor:$apr1$/raJC6Wd$jJ.mno3OrP.35w/udMt5Y/

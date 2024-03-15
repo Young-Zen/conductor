@@ -16,10 +16,6 @@
 
 echo "Starting Conductor server"
 
-echo "Running Nginx in background"
-# Start nginx as daemon
-nginx
-
 # Start the server
 cd /app/libs
 echo "Property file: $CONFIG_PROP"
@@ -37,4 +33,4 @@ fi
 
 echo "Using java options config: $JAVA_OPTS"
 
-java ${JAVA_OPTS} -jar -DCONDUCTOR_CONFIG_FILE=$config_file conductor-server.jar 2>&1 | tee -a /app/logs/server.log
+exec java ${JAVA_OPTS} -jar -DCONDUCTOR_CONFIG_FILE=$config_file conductor-server.jar
